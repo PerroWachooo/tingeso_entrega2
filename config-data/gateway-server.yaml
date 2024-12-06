@@ -1,0 +1,54 @@
+server:
+  port: 8080
+  
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      default-zone: http://localhost:8761/eureka
+  instance:
+    hostname: localhost
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: '*'
+            allowedMethods: "*"
+            allowedHeaders: "*"
+      routes:
+        - id: ms-evaluation
+          uri: lb://ms-evaluation
+          predicates:
+            - Path=/user/**
+
+        - id: ms-register
+          uri: lb://ms-register
+          predicates:
+            - Path=/api/v1/users/**
+
+        - id: ms-simulation
+          uri: lb://ms-simulation
+          predicates:
+            - Path=/api/v1/simulation/**
+
+        - id: ms-solicitud
+          uri: lb://ms-solicitud
+          predicates:
+            - Path=/api/v1/loanaplication/**
+
+        - id: ms-totalcost
+          uri: lb://ms-totalcost/
+          predicates:
+            - Path=/api/v1/totalcost/**
+
+          - id: ms-tracking
+          uri: lb://ms-tracking
+          predicates:
+            - Path=/api/v1/tracking/**
+          
