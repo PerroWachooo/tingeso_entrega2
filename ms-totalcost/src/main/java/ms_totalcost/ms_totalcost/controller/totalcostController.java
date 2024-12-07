@@ -6,6 +6,9 @@ import org.springframework.web.bind.annotation.*;
 
 import ms_totalcost.ms_totalcost.services.totalcostService;
 
+@RestController
+@RequestMapping("api/v1/totalcost")
+@CrossOrigin("*")
 public class totalcostController {
 
     @Autowired
