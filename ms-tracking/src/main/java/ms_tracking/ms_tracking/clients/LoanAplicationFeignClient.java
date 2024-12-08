@@ -4,12 +4,13 @@ import ms_tracking.ms_tracking.models.LoanAplicationEntity;
 
 import java.util.List;
 
+import ms_tracking.ms_tracking.configurations.FeignClientConfig;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-@FeignClient(name = "ms-solicitud", path = "api/v1/loanaplication")
+@FeignClient(name = "ms-solicitud", path = "api/v1/loanaplication", configuration = { FeignClientConfig.class })
 public interface LoanAplicationFeignClient {
 
     @GetMapping("/")
