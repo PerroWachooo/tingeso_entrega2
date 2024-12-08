@@ -46,7 +46,7 @@ spring:
           predicates:
             - Path=/api/v1/totalcost/**
 
-          - id: ms-tracking
+        - id: ms-tracking
           uri: lb://ms-tracking
           predicates:
             - Path=/api/v1/tracking/**
