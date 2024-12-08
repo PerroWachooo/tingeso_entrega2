@@ -24,7 +24,7 @@ spring:
         - id: ms-evaluation
           uri: lb://ms-evaluation
           predicates:
-            - Path=/user/**
+            - Path=api/v1/users**
 
         - id: ms-register
           uri: lb://ms-register
