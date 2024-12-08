@@ -51,4 +51,3 @@ spring:
           uri: lb://ms-tracking
           predicates:
             - Path=/api/v1/tracking/**
-          
