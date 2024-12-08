@@ -14,7 +14,7 @@ public class totalcostController {
     @Autowired
     totalcostService totalcostService;
 
-    @GetMapping("calculateTotalCost/{id}")
+    @GetMapping("/calculateTotalCost/{id}")
     public ResponseEntity<Double> calculateTotalCost(@PathVariable Long id) {
         return ResponseEntity.ok(totalcostService.calculateTotalCost(id));
     }

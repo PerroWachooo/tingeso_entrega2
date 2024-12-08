@@ -210,7 +210,7 @@ public class LoanAplicationController {
         return ResponseEntity.ok(result);
     }
 
-    @GetMapping("calculateTotalCost/{id}")
+    @GetMapping("/calculateTotalCost/{id}")
     public ResponseEntity<Double> calculateTotalCost(@PathVariable Long id) {
         return loanAplicationService.getLoanAplicationById(id)
                 .map(loanApplication -> {
