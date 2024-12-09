@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ms-evaluation-deployment
+  labels:
+    app: ms-evaluation-deployment
+spec:
+  selector:
+    matchLabels:
+      app: ms-evaluation-deployment
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: ms-evaluation-deployment
+    spec:
+      containers:
+        - name: ms-evaluation
+          image: bastianbrito/ms-evaluation
+          ports:
+            - containerPort: 8091
+          env:
+            - name: SERVER_PORT
+              value: "0"

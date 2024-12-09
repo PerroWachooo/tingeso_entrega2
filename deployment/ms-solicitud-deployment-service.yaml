@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ms-solicitud-deployment
+  labels:
+    app: ms-solicitud-deployment
+spec:
+  selector:
+    matchLabels:
+      app: ms-solicitud-deployment
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: ms-solicitud-deployment
+    spec:
+      containers:
+        - name: ms-solicitud
+          image: bastianbrito/ms-solicitud
+          ports:
+            - containerPort: 8094
+          env:
+            - name: SERVER_PORT
+              value: "0"
+            - name: DB_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: postgres-config-map
+                  key: DB_HOST_SOLICITUD
+            - name: DB_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: postgres-config-map
+                  key: DB_PORT_SOLICITUD
+            - name: DB_NAME
+              valueFrom:
+                configMapKeyRef:
+                  name: postgres-config-map
+                  key: DB_NAME_SOLICITUD
+            - name: DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secret
+                  key: DB_USER
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secret
+                  key: DB_PASSWORD

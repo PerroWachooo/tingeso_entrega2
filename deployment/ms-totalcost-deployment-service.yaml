@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ms-totalcost-deployment
+  labels:
+    app: ms-totalcost-deployment
+spec:
+  selector:
+    matchLabels:
+      app: ms-totalcost-deployment
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: ms-totalcost-deployment
+    spec:
+      containers:
+        - name: ms-totalcost
+          image: bastianbrito/ms-totalcost
+          ports:
+            - containerPort: 8095
+          env:
+            - name: SERVER_PORT
+              value: "0"

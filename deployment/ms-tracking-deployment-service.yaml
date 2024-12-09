@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ms-tracking-deployment
+  labels:
+    app: ms-tracking-deployment
+spec:
+  selector:
+    matchLabels:
+      app: ms-tracking-deployment
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: ms-tracking-deployment
+    spec:
+      containers:
+        - name: ms-tracking
+          image: bastianbrito/ms-tracking
+          ports:
+            - containerPort: 8096
+          env:
+            - name: SERVER_PORT
+              value: "0"
