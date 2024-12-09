@@ -3,3 +3,5 @@ Cluster ip: 192.168.49.2 (Para hacer consultas dede el frontend)
 Preguntar a jaime por:
 -  DB_HOST_ en postgres-confi (El nombre de que tiene que ser igual a)
 - Como hacer los volumenes
+
+Agregar front (carpeta y deployment)
