@@ -7,7 +7,7 @@ metadata:
 data:
   DB_HOST_REGISTER: register-db-service
   DB_PORT_REGISTER: "5432"
-  DB_NAME_REGISTER: ms-register-db
+  DB_NAME_REGISTER: register-db
   DB_HOST_SOLICITUD: solicitud-db-service
   DB_PORT_SOLICITUD: "5432"
-  DB_NAME_SOLICITUD: ms-solicitud-db
+  DB_NAME_SOLICITUD: solicitud-db
