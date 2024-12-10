@@ -5,3 +5,16 @@ Preguntar a jaime por:
 - Como hacer los volumenes
 
 Agregar front (carpeta y deployment)
+
+
+Orden:
+    config map
+    secrets
+    deployment Dbs
+    config-server
+    eureka
+    gateway
+    ms
+    front
+
+
